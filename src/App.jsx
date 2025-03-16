@@ -4,7 +4,7 @@ import styles from "./App.module.css";
 const initialItems = [
   "🔴 Red seat",
   "🛏️ Bunk bed",
-  "🐻 Animal stuffed toy",
+  "🐻 Animal stuffed toy!",
   "🌱 Green plant",
   "🌟 Yellow lamp",
   "🍽️ Floral plate",
