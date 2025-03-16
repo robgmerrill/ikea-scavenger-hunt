@@ -2,36 +2,26 @@ import { useState, useEffect } from "react";
 import styles from "./App.module.css";
 
 const initialItems = [
-  "🔴 Red seat",
+  "🔴 Red chair",
   "🛏️ Bunk bed",
-  "🐻 Animal stuffed toy!",
+  "🐻 Stuffed animal toy",
   "🌱 Green plant",
   "🌟 Yellow lamp",
-  "🍽️ Floral plate",
+  "🍽️ Colorful plate",
   "🔵 Blue rug",
-  "🖼️ Happy family picture",
-  "🧺 Big toy basket",
+  "🖼️ Framed family picture",
+  "🧺 Toy storage basket",
   "🪞 Round mirror",
-  "🟣 Soft purple item",
+  "🟣 Purple pillow",
   "🖍️ Coloring set",
-  "🧸 Dressed teddy bear",
   "🍊 Orange kitchen item",
-  "🎈 Polka dot item",
-  "❤️ Heart pillow",
-  "🌙 Starry blanket",
+  "🎈 Round pillow",
+  "❤️ Heart-shaped item",
+  "🌙 Blanket with stars",
   "🚗 Toy vehicle",
-  "🪑 Tiny kids chair",
-  "🌈 Three-colored item",
-  "🟩 Green pillow",
+  "🪑 Small kid's chair",
+  "🌈 Multi-colored blanket",
   "📚 Children's book",
-  "🍦 Ice cream item",
-  "🐰 Rabbit-shaped item",
-  "🛒 Kid's shopping cart",
-  "🐦 Bird fabric item",
-  "🖤 Black-white item",
-  "🎨 Colorful painting",
-  "💡 Fairy lights",
-  "🎍 Tall fake tree",
 ];
 
 export default function App() {
@@ -65,7 +55,7 @@ export default function App() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>🛒 Addi's IKEA Scavenger Hunt</h1>
+      <h1 className={styles.title}>🛒 Addi's IKEA Scavenger Hunt!</h1>
       <p className={styles.counter}>
         {itemsChecked} / {items.length} items found
       </p>
