@@ -2,36 +2,36 @@ import { useState, useEffect } from "react";
 import styles from "./App.module.css";
 
 const initialItems = [
-  "🔴 Something red you can sit on",
-  "🛏️ A bunk bed",
-  "🐻 An animal-shaped stuffed toy",
-  "🌱 A green plant (real or pretend!)",
-  "🌟 A yellow lamp",
-  "🍽️ A plate decorated with flowers",
-  "🔵 A blue rug",
-  "🖼️ A picture of a happy family",
-  "🧺 A basket big enough for your toys",
-  "🪞 A round mirror",
-  "🟣 Something soft and purple",
-  "🖍️ A coloring or drawing set",
-  "🧸 A teddy bear wearing clothes",
-  "🍊 Something orange in the kitchen",
-  "🎈 An item with polka dots",
-  "❤️ A pillow shaped like a heart",
-  "🌙 A blanket with stars or moons",
-  "🚗 A toy vehicle (car, truck, or train)",
-  "🪑 A tiny chair for kids",
-  "🌈 Something with at least three different colors",
-  "🟩 A green pillow",
-  "📚 A children's book",
-  "🍦 Something that looks like ice cream",
-  "🐰 A rabbit-shaped item",
-  "🛒 A small shopping cart for kids",
-  "🐦 A bird printed on fabric",
-  "🖤 Something black and white",
-  "🎨 A colorful painting",
-  "💡 A string of lights (fairy lights)",
-  "🎍 A tall pretend tree",
+  "🔴 Red seat",
+  "🛏️ Bunk bed",
+  "🐻 Animal stuffed toy",
+  "🌱 Green plant",
+  "🌟 Yellow lamp",
+  "🍽️ Floral plate",
+  "🔵 Blue rug",
+  "🖼️ Happy family picture",
+  "🧺 Big toy basket",
+  "🪞 Round mirror",
+  "🟣 Soft purple item",
+  "🖍️ Coloring set",
+  "🧸 Dressed teddy bear",
+  "🍊 Orange kitchen item",
+  "🎈 Polka dot item",
+  "❤️ Heart pillow",
+  "🌙 Starry blanket",
+  "🚗 Toy vehicle",
+  "🪑 Tiny kids chair",
+  "🌈 Three-colored item",
+  "🟩 Green pillow",
+  "📚 Children's book",
+  "🍦 Ice cream item",
+  "🐰 Rabbit-shaped item",
+  "🛒 Kid's shopping cart",
+  "🐦 Bird fabric item",
+  "🖤 Black-white item",
+  "🎨 Colorful painting",
+  "💡 Fairy lights",
+  "🎍 Tall fake tree",
 ];
 
 export default function App() {
@@ -42,8 +42,15 @@ export default function App() {
       : initialItems.map((item) => ({ text: item, checked: false }));
   });
 
+  const [celebrate, setCelebrate] = useState(false);
+
   useEffect(() => {
     localStorage.setItem("ikeaScavenger", JSON.stringify(items));
+    if (items.every((item) => item.checked)) {
+      setCelebrate(true);
+    } else {
+      setCelebrate(false);
+    }
   }, [items]);
 
   const toggleCheck = (index) => {
@@ -54,9 +61,19 @@ export default function App() {
     );
   };
 
+  const itemsChecked = items.filter((item) => item.checked).length;
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>🛒 Addi's IKEA Scavenger Hunt</h1>
+      <p className={styles.counter}>
+        {itemsChecked} / {items.length} items found
+      </p>
+      {celebrate && (
+        <div className={styles.celebration}>
+          🎉 Congratulations! You found everything! 🎉
+        </div>
+      )}
       <div className={styles.card}>
         <ul className={styles.list}>
           {items.map((item, index) => (
